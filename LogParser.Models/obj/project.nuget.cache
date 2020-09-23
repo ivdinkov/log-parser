@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "zIs+NK/IsoS9uBwo7h+JTWzrseq0RRUQGZavp9dNzQCwFABlo76TB2B3hsjhlgmyMLxh+ejC7jLPVSzCRkJfFQ==",
+  "success": true,
+  "projectFilePath": "C:\\CODEBASE\\csharp\\ds_csharp\\LogParser\\LogParser.Models\\LogParser.Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ivan.Dinkov\\.nuget\\packages\\microsoft.aspnetcore.http.features\\3.1.8\\microsoft.aspnetcore.http.features.3.1.8.nupkg.sha512",
+    "C:\\Users\\Ivan.Dinkov\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.8\\microsoft.extensions.primitives.3.1.8.nupkg.sha512",
+    "C:\\Users\\Ivan.Dinkov\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Ivan.Dinkov\\.nuget\\packages\\system.io.pipelines\\4.7.2\\system.io.pipelines.4.7.2.nupkg.sha512"
+  ],
+  "logs": []
+}

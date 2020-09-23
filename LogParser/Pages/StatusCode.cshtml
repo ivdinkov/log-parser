@@ -1,0 +1,12 @@
+﻿@page
+@model StatusCodeModel
+@{
+    ViewData["Title"] = "Status Code @Model.ErrorStatusCode";
+}
+
+<div class="container-fluid m-5 d-flex justify-content-center p-5">
+    <div class="d-flex flex-column justify-content-center">
+        <h1 class="text-danger display-1 text-center mb-5">@Model.ErrorStatusCode</h1>
+        <i class="far fa-sad-tear" style="font-size:250px;color:darkgray"></i>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+﻿@page
+
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container d-flex justify-content-center">
+    <div class="m-4">
+        <div>
+            <form enctype="multipart/form-data" method="post" class="d-flex flex-column">
+                <div>
+                    <div class="input-group mb-3">
+                        <div class="custom-file">
+                            <input asp-for="FileUpload.FormFiles" type="file" class="custom-file-input" multiple id="inputGroupFile02">
+                            <label asp-for="FileUpload.FormFiles" class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                        </div>
+                        <div class="input-group-append">
+                            <input asp-page-handler="Upload" class="input-group-text" type="submit" value="Upload">
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <span class="text-muted small"><em>.zip or .txt 2MB max size!</em></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@if (@Model.ErrorMsg != null)
+{
+    <div class="d-flex justify-content-center">
+        <p class="text-danger">@Model.ErrorMsg</p>
+    </div>
+}
+else if (Model.Logs.Count() > 0)
+{
+    <div class="m-3">
+        <div class="log-wrapper">
+            <table class="table  table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">TimeStamp</th>
+                        <th scope="col">Action</th>
+                        <th scope="col">Authorization</th>
+                        <th scope="col">Host</th>
+                        <th scope="col">Endpoint</th>
+                        <th scope="col">Response Code</th>
+                        <th scope="col">Request</th>
+                        <th scope="col">Response</th>
+                        <th scope="col">Token</th>
+                        <th scope="col">Full Log</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var log in Model.Logs)
+                    {
+                    <tr>
+                        <th scope="row">@log.ID</th>
+                        <th scope="col">@log.TimeStamp</th>
+                        <th scope="col">@log.Action</th>
+                        <th scope="col">@log.Authorization</th>
+                        <th scope="col">@log.Host</th>
+                        <th scope="col">@log.Endpoint</th>
+                        <th scope="col">@log.ResponseCode</th>
+                        @if (log.RequestBody != null)
+                        {
+                            <th scope="col" class="view" id="Request_@log.ID">view</th>
+                        }
+                        else
+                        {
+                            <th scope="col">N/A</th>
+                        }
+                        @if (log.ResponseBody != null)
+                        {
+                            <th scope="col" class="view" id="Response_@log.ID">view</th>
+                        }
+                        else
+                        {
+                            <th scope="col">N/A</th>
+                        }
+                        <th scope="col">@log.TokenGUID</th>
+                        <th scope="col" class="view" id="Full_@log.ID">view</th>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+else
+{
+    <div class="d-flex justify-content-center">
+        <p class="upload">Upload your log files</p>
+    </div>
+}
+<div class="bg-result">
+    <div id="view-result"></div>
+</div>
