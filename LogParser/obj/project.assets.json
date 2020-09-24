@@ -867,11 +867,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\CODEBASE\\csharp\\ds_csharp\\LogParser\\LogParser\\LogParser.csproj",
+      "projectUniqueName": "C:\\CODEBASE\\csharp\\log-parser\\LogParser\\LogParser.csproj",
       "projectName": "LogParser",
-      "projectPath": "C:\\CODEBASE\\csharp\\ds_csharp\\LogParser\\LogParser\\LogParser.csproj",
+      "projectPath": "C:\\CODEBASE\\csharp\\log-parser\\LogParser\\LogParser.csproj",
       "packagesPath": "C:\\Users\\Ivan.Dinkov\\.nuget\\packages\\",
-      "outputPath": "C:\\CODEBASE\\csharp\\ds_csharp\\LogParser\\LogParser\\obj\\",
+      "outputPath": "C:\\CODEBASE\\csharp\\log-parser\\LogParser\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ivan.Dinkov\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -887,11 +887,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\CODEBASE\\csharp\\ds_csharp\\LogParser\\LogParser.Models\\LogParser.Models.csproj": {
-              "projectPath": "C:\\CODEBASE\\csharp\\ds_csharp\\LogParser\\LogParser.Models\\LogParser.Models.csproj"
+            "C:\\CODEBASE\\csharp\\log-parser\\LogParser.Models\\LogParser.Models.csproj": {
+              "projectPath": "C:\\CODEBASE\\csharp\\log-parser\\LogParser.Models\\LogParser.Models.csproj"
             },
-            "C:\\CODEBASE\\csharp\\ds_csharp\\LogParser\\LogParser.Service\\LogParser.Service.csproj": {
-              "projectPath": "C:\\CODEBASE\\csharp\\ds_csharp\\LogParser\\LogParser.Service\\LogParser.Service.csproj"
+            "C:\\CODEBASE\\csharp\\log-parser\\LogParser.Service\\LogParser.Service.csproj": {
+              "projectPath": "C:\\CODEBASE\\csharp\\log-parser\\LogParser.Service\\LogParser.Service.csproj"
             }
           }
         }

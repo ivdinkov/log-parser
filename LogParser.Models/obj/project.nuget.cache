@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zIs+NK/IsoS9uBwo7h+JTWzrseq0RRUQGZavp9dNzQCwFABlo76TB2B3hsjhlgmyMLxh+ejC7jLPVSzCRkJfFQ==",
+  "dgSpecHash": "xIsc41XKmR83GgRDZAh5cb9N64Xe6YDTPsV9NYull2n5j0YohdCsLztAZVYaDv6aFXALnar0BX0jRo6a984Ifg==",
   "success": true,
-  "projectFilePath": "C:\\CODEBASE\\csharp\\ds_csharp\\LogParser\\LogParser.Models\\LogParser.Models.csproj",
+  "projectFilePath": "C:\\CODEBASE\\csharp\\log-parser\\LogParser.Models\\LogParser.Models.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ivan.Dinkov\\.nuget\\packages\\microsoft.aspnetcore.http.features\\3.1.8\\microsoft.aspnetcore.http.features.3.1.8.nupkg.sha512",
     "C:\\Users\\Ivan.Dinkov\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.8\\microsoft.extensions.primitives.3.1.8.nupkg.sha512",

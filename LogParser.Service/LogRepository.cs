@@ -39,65 +39,77 @@ namespace LogParser.Service
 
             using (var reader = new StreamReader(new MemoryStream(formFile)))
             {
-                while (reader.Peek() >= 0)
+                string[] verbs = { "GET", "POST", "PUT", "DELETE"};
+                string[] lines = reader.ReadToEnd().Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+
+                // TraceToken
+                log.TokenGUID = lines[0].Split(new[] { ':' }, 2)[1].Trim();
+
+                // Timestamp
+                var timeString = lines[1].Split(new[] { ':' }, 2)[1];
+                DateTime dt = DateTime.Parse(timeString.Trim());
+                log.TimeStamp = dt.Day + " " + dt.DayOfWeek + " " + " " + dt.Year + " - " + dt.Hour + ":" + dt.Minute.ToString("D2") + ":" + dt.Second.ToString("D2") + ":" + dt.Millisecond.ToString("D2");
+
+                var actionLine = lines.Where(line => verbs.Any(verb => line.StartsWith(verb))).FirstOrDefault();
+
+                // Action
+                log.Action = actionLine.ToString().Split(' ').First();
+
+                // Endpoint
+                var url = actionLine.Split(new[] { ' ' }, 2)[1].Split(new[] { '/' }, 2)[1].Split('/');
+                var endpoint = url.Skip(2).ToArray();
+                log.Endpoint = string.Join('/', endpoint);
+
+                // Host
+                log.Host = url[1].Split(new[] { ':' }, 2)[0].ToString();
+
+                // Authorization
+                log.Authorization = lines.Where(line => line.StartsWith("Authorization")).FirstOrDefault().Split(new[] { ':' }, 2)[1].ToString();
+
+                // Response code
+                log.ResponseCode = (from line in lines where Regex.IsMatch(line, pattern, RegexOptions.IgnoreCase) select line).FirstOrDefault().ToString();
+
+                // Get all json
+                var jsonBodies = lines.Where(l => (l.StartsWith("{") && l.EndsWith("}") || (l.StartsWith("[") && l.EndsWith("]")))).ToList();
+
+                // Request/Response body
+                if (jsonBodies.Count > 0)
                 {
-                    var line = reader.ReadLine();
-
-                    if (line.Length == 0)
-                        continue;
-
-                    if (line.StartsWith("TraceToken"))
-                    {
-                        log.TokenGUID = line.Split(new[] { ':' }, 2)[1].Trim();
-                    }
-                    else if (line.StartsWith("Timestamp"))
-                    {
-                        var timeString = line.Split(new[] { ':' }, 2);
-                        DateTime dt = DateTime.Parse(timeString[1].Trim());
-                        log.TimeStamp = dt.Day + " " + dt.DayOfWeek + " " + " " + dt.Year + " - " + dt.Hour + ":" + dt.Minute.ToString("D2") + ":" + dt.Second.ToString("D2") + ":" + dt.Millisecond.ToString("D2");
-                    }
-                    else if (line.StartsWith("GET http") || line.StartsWith("POST http") || line.StartsWith("PUT http") || line.StartsWith("DELETE http"))
-                    {
-                        log.Action = line.Split(' ').First();
-                        var url = line.Split(new[] { ' ' }, 2)[1].Split(new[] { '/' }, 2)[1].Split('/');
-                        var endpoint = url.Skip(2).ToArray();
-                        log.Endpoint = string.Join('/', endpoint);
-                        log.Host = url[1].Split(new[] { ':' }, 2)[0].ToString();
-                    }
-                    else if (line.StartsWith("Authorization"))
-                    {
-                        log.Authorization = line.Split(new[] { ':' }, 2)[1].ToString();
-                    }
-                    else if (Regex.Match(line, pattern, RegexOptions.IgnoreCase).Success)
-                    {
-                        log.ResponseCode = line.ToString();
-                    }
-                    else if (log.RequestBody == null && (log.Action.Equals("POST") || log.Action.Equals("PUT"))
-                        && ((line.StartsWith("{") && line.EndsWith("}")) || (line.StartsWith("[") && line.EndsWith("]"))))
+                    if (jsonBodies.Count > 1 && (log.Action.Equals("POST") || log.Action.Equals("PUT")))
                     {
                         try
                         {
-                            log.RequestBody = JObject.Parse(line);
+                            log.RequestBody = JObject.Parse(jsonBodies.FirstOrDefault().ToString());
                         }
                         catch (Exception)
                         {
                             log.RequestBody = new JArray() { "Unable to parse request body!" };
                         }
+
+                        try
+                        {
+                            log.ResponseBody = JObject.Parse(jsonBodies.Skip(1).FirstOrDefault().ToString());
+                        }
+                        catch (Exception)
+                        {
+                            log.RequestBody = new JArray() { "Unable to parse response body!" };
+                        }
                     }
-                    else if (log.ResponseCode != null
-                        && ((line.StartsWith("{") && line.EndsWith("}")) || (line.StartsWith("[") && line.EndsWith("]"))))
+                    else
                     {
                         try
                         {
-                            log.ResponseBody = JObject.Parse(line);
+                            log.ResponseBody = JObject.Parse(jsonBodies.FirstOrDefault().ToString());
                         }
                         catch (Exception)
                         {
                             log.ResponseBody = new JArray() { "Unable to parse response body!" };
                         }
                     }
+
                 }
             }
+
             log.ID = _logs.Count() + 1;
             log.FullBody = formFile;
             _logs.Add(log);

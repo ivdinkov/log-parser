@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NNLP+InztLOFyb2XDi6RniJoXD1KYVB3p8i9PevqUJBkwIhMp+z16Qa5n5c+b4bwd52BWoVU1P+uSNjLfQZ2Vg==",
+  "dgSpecHash": "F5L692BtYS/bPIC95kc4ceICI/RXUve/K6BtbYsdFEl1wDT1JaLfhMNLiyLhcxuXQaqVBtPM76DlMJLyLa1FJA==",
   "success": true,
-  "projectFilePath": "C:\\CODEBASE\\csharp\\ds_csharp\\LogParser\\LogParser\\LogParser.csproj",
+  "projectFilePath": "C:\\CODEBASE\\csharp\\log-parser\\LogParser\\LogParser.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ivan.Dinkov\\.nuget\\packages\\microsoft.aspnetcore.http.features\\3.1.8\\microsoft.aspnetcore.http.features.3.1.8.nupkg.sha512",
     "C:\\Users\\Ivan.Dinkov\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\3.1.8\\microsoft.aspnetcore.mvc.razor.extensions.3.1.8.nupkg.sha512",

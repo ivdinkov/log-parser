@@ -150,11 +150,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\CODEBASE\\csharp\\ds_csharp\\LogParser\\LogParser.Models\\LogParser.Models.csproj",
+      "projectUniqueName": "C:\\CODEBASE\\csharp\\log-parser\\LogParser.Models\\LogParser.Models.csproj",
       "projectName": "LogParser.Models",
-      "projectPath": "C:\\CODEBASE\\csharp\\ds_csharp\\LogParser\\LogParser.Models\\LogParser.Models.csproj",
+      "projectPath": "C:\\CODEBASE\\csharp\\log-parser\\LogParser.Models\\LogParser.Models.csproj",
       "packagesPath": "C:\\Users\\Ivan.Dinkov\\.nuget\\packages\\",
-      "outputPath": "C:\\CODEBASE\\csharp\\ds_csharp\\LogParser\\LogParser.Models\\obj\\",
+      "outputPath": "C:\\CODEBASE\\csharp\\log-parser\\LogParser.Models\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ivan.Dinkov\\AppData\\Roaming\\NuGet\\NuGet.Config",
