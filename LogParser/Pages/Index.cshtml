@@ -44,13 +44,12 @@ else if (Model.Logs.Count() > 0)
                         <th scope="col">#</th>
                         <th scope="col">TimeStamp</th>
                         <th scope="col">Action</th>
-                        <th scope="col">Authorization</th>
                         <th scope="col">Host</th>
                         <th scope="col">Endpoint</th>
                         <th scope="col">Response Code</th>
                         <th scope="col">Request</th>
                         <th scope="col">Response</th>
-                        <th scope="col">Token</th>
+                        <th scope="col">TraceToken</th>
                         <th scope="col">Full Log</th>
                     </tr>
                 </thead>
@@ -61,7 +60,6 @@ else if (Model.Logs.Count() > 0)
                         <th scope="row">@log.ID</th>
                         <th scope="col">@log.TimeStamp</th>
                         <th scope="col">@log.Action</th>
-                        <th scope="col">@log.Authorization</th>
                         <th scope="col">@log.Host</th>
                         <th scope="col">@log.Endpoint</th>
                         <th scope="col">@log.ResponseCode</th>
