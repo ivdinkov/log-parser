@@ -10,7 +10,6 @@ namespace LogParser.models
         public string Action { get; set; }
         public string Host { get; set; }
         public string Endpoint { get; set; }
-        public string Authorization { get; set; }
         public string ResponseCode { get; set; }
         public JToken RequestBody { get; set; }
         public JToken ResponseBody { get; set; }

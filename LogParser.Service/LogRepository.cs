@@ -63,9 +63,6 @@ namespace LogParser.Service
                 // Host
                 log.Host = url[1].Split(new[] { ':' }, 2)[0].ToString();
 
-                // Authorization
-                log.Authorization = lines.Where(line => line.StartsWith("Authorization")).FirstOrDefault().Split(new[] { ':' }, 2)[1].ToString();
-
                 // Response code
                 log.ResponseCode = (from line in lines where Regex.IsMatch(line, pattern, RegexOptions.IgnoreCase) select line).FirstOrDefault().ToString();
 
