@@ -5,6 +5,17 @@
     ViewData["Title"] = "Home page";
 }
 
+<section id="busy">
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</section>
+
+
 <div class="container d-flex justify-content-center">
     <div class="m-4">
         <div>
@@ -13,15 +24,12 @@
                     <div class="input-group mb-3">
                         <div class="custom-file">
                             <input asp-for="FileUpload.FormFiles" type="file" class="custom-file-input" multiple id="inputGroupFile02">
-                            <label asp-for="FileUpload.FormFiles" class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                            <label asp-for="FileUpload.FormFiles" class="custom-file-label" for="inputGroupFile02"><span class="text-muted"><em>Select your .zip, .txt files</em></span></label>
                         </div>
                         <div class="input-group-append">
-                            <input asp-page-handler="Upload" class="input-group-text" type="submit" value="Upload">
+                            <input asp-page-handler="Upload" class="input-group-text" type="submit" value="Parse">
                         </div>
                     </div>
-                </div>
-                <div class="d-flex justify-content-center">
-                    <span class="text-muted small"><em>.zip or .txt 2MB max size!</em></span>
                 </div>
             </form>
         </div>
@@ -56,32 +64,32 @@ else if (Model.Logs.Count() > 0)
                 <tbody>
                     @foreach (var log in Model.Logs)
                     {
-                    <tr>
-                        <th scope="row">@log.ID</th>
-                        <th scope="col">@log.TimeStamp</th>
-                        <th scope="col">@log.Action</th>
-                        <th scope="col">@log.Host</th>
-                        <th scope="col">@log.Endpoint</th>
-                        <th scope="col">@log.ResponseCode</th>
-                        @if (log.RequestBody != null)
-                        {
-                            <th scope="col" class="view" id="Request_@log.ID">view</th>
-                        }
-                        else
-                        {
-                            <th scope="col">N/A</th>
-                        }
-                        @if (log.ResponseBody != null)
-                        {
-                            <th scope="col" class="view" id="Response_@log.ID">view</th>
-                        }
-                        else
-                        {
-                            <th scope="col">N/A</th>
-                        }
-                        <th scope="col">@log.TokenGUID</th>
-                        <th scope="col" class="view" id="Full_@log.ID">view</th>
-                    </tr>
+                        <tr>
+                            <th scope="row">@log.ID</th>
+                            <th scope="col">@log.TimeStamp</th>
+                            <th scope="col">@log.Action</th>
+                            <th scope="col">@log.Host</th>
+                            <th scope="col">@log.Endpoint</th>
+                            <th scope="col">@log.ResponseCode</th>
+                            @if (log.RequestBody != null)
+                            {
+                                <th scope="col" class="view" id="Request_@log.ID">view</th>
+                            }
+                            else
+                            {
+                                <th scope="col">N/A</th>
+                            }
+                            @if (log.ResponseBody != null)
+                            {
+                                <th scope="col" class="view" id="Response_@log.ID">view</th>
+                            }
+                            else
+                            {
+                                <th scope="col">N/A</th>
+                            }
+                            <th scope="col">@log.TokenGUID</th>
+                            <th scope="col" class="view" id="Full_@log.ID">view</th>
+                        </tr>
                     }
                 </tbody>
             </table>
