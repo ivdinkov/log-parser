@@ -109,7 +109,6 @@ namespace LogParser.Pages
 
             var result = await _logRepository.GetDataAsync(Param);
 
-            // test comment
             return new JsonResult(result);
         }
     }

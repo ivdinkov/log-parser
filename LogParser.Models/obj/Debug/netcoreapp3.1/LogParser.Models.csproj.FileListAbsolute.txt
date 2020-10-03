@@ -16,3 +16,12 @@ C:\CODEBASE\csharp\ds_csharp\LogParser\LogParser.Models\obj\Debug\netcoreapp3.1\
 C:\CODEBASE\csharp\ds_csharp\LogParser\LogParser.Models\obj\Debug\netcoreapp3.1\LogParser.Models.csproj.CoreCompileInputs.cache
 C:\CODEBASE\csharp\ds_csharp\LogParser\LogParser.Models\obj\Debug\netcoreapp3.1\LogParser.Models.dll
 C:\CODEBASE\csharp\ds_csharp\LogParser\LogParser.Models\obj\Debug\netcoreapp3.1\LogParser.Models.pdb
+C:\CODEBASE\log-parser\LogParser.Models\bin\Debug\netcoreapp3.1\LogParser.Models.deps.json
+C:\CODEBASE\log-parser\LogParser.Models\bin\Debug\netcoreapp3.1\LogParser.Models.dll
+C:\CODEBASE\log-parser\LogParser.Models\bin\Debug\netcoreapp3.1\LogParser.Models.pdb
+C:\CODEBASE\log-parser\LogParser.Models\obj\Debug\netcoreapp3.1\LogParser.Models.csprojAssemblyReference.cache
+C:\CODEBASE\log-parser\LogParser.Models\obj\Debug\netcoreapp3.1\LogParser.Models.AssemblyInfoInputs.cache
+C:\CODEBASE\log-parser\LogParser.Models\obj\Debug\netcoreapp3.1\LogParser.Models.AssemblyInfo.cs
+C:\CODEBASE\log-parser\LogParser.Models\obj\Debug\netcoreapp3.1\LogParser.Models.csproj.CoreCompileInputs.cache
+C:\CODEBASE\log-parser\LogParser.Models\obj\Debug\netcoreapp3.1\LogParser.Models.dll
+C:\CODEBASE\log-parser\LogParser.Models\obj\Debug\netcoreapp3.1\LogParser.Models.pdb
