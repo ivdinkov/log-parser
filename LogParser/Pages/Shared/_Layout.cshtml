@@ -66,12 +66,12 @@
             $('.bg-result').css("display", "flex");
             $('#view-result').css("display", "block");
             if (pretty) {
-                $('#view-result').html(JSON.stringify(response, null, 2));
+                $('#view-result-body').html(JSON.stringify(response, null, 2));
             } else {
-                $('#view-result').html(response);
+                $('#view-result-body').html(response);
             }
         }
-        $('#view-result').click(function () {
+        $('#close').click(function () {
             $('.bg-result').css("display", "none");
             $('#view-result').css("display", "none");
         })
