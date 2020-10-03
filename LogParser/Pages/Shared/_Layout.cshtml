@@ -53,15 +53,23 @@
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
                     success: function (response) {
-                        showResult(response);
+                        try {
+                            showResult(JSON.parse(response),true);
+                        } catch (e) {
+                            showResult(response, false);
+                        }
                     }
                 });
             });
         });
-        function showResult(response) {
+        function showResult(response, pretty) {
             $('.bg-result').css("display", "flex");
             $('#view-result').css("display", "block");
-            $('#view-result').html(response);
+            if (pretty) {
+                $('#view-result').html(JSON.stringify(response, null, 2));
+            } else {
+                $('#view-result').html(response);
+            }
         }
         $('#view-result').click(function () {
             $('.bg-result').css("display", "none");
